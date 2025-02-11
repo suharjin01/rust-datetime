@@ -4,7 +4,7 @@ fn main() {
 
 #[cfg(test)]
 mod tests {
-    use chrono::{Datelike, Duration, NaiveDate, NaiveTime, Timelike};
+    use chrono::{Datelike, Duration, NaiveDate, NaiveDateTime, NaiveTime, Timelike};
 
 
     #[test]
@@ -36,5 +36,22 @@ mod tests {
         println!("{}", time.minute());
         println!("{}", time.second());
         println!("{}", time.nanosecond());
+    }
+
+    // Date Time
+    #[test]
+    fn test_datetime() {
+        let date_time = NaiveDateTime::new(
+            NaiveDate::from_ymd_opt(2025, 2, 11).unwrap(),
+            NaiveTime::from_hms_opt(21, 40, 55).unwrap()
+        );
+
+        println!("{}", date_time.date().year());
+        println!("{}", date_time.date().month());
+        println!("{}", date_time.date().day());
+        println!("{}", date_time.time().hour());
+        println!("{}", date_time.time().minute());
+        println!("{}", date_time.time().second());
+        println!("{}", date_time.time().nanosecond());
     }
 }
