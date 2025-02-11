@@ -103,4 +103,20 @@ mod tests {
         println!("{}", local_date_time);
         println!("{}", asia_makassar_date_time);
     }
+
+    // Parsing
+    #[test]
+    fn test_parsing() {
+        let string = String::from("2025-02-11 22:10:10 +0800");
+        let time = DateTime::parse_from_str(&string, "%Y-%m-%d %H:%M:%S %z").unwrap();
+
+        println!("{}", time.year());
+        println!("{}", time.month());
+        println!("{}", time.day());
+        println!("{}", time.hour());
+        println!("{}", time.minute());
+        println!("{}", time.second());
+        println!("{}", time.nanosecond());
+        println!("{}", time.timezone());
+    }
 }
